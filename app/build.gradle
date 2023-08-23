@@ -9,6 +9,11 @@ android {
     namespace 'com.example.fetchexercise'
     compileSdk 33
 
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId "com.example.fetchexercise"
         minSdk 24
@@ -20,11 +25,22 @@ android {
     }
 
     buildTypes {
+
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            zipAlignEnabled true
+        }
+        debug {
+            debuggable true
+            //signingConfig signingConfigs.debug
+        }
+
+        qa {
+            debuggable true
+            //signingConfig signingConfigs.qa
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
