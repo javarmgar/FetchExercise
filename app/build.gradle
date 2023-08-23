@@ -9,6 +9,11 @@ android {
     namespace 'com.example.fetchexercise'
     compileSdk 33
 
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId "com.example.fetchexercise"
         minSdk 24
@@ -20,11 +25,22 @@ android {
     }
 
     buildTypes {
+
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            zipAlignEnabled true
+        }
+        debug {
+            debuggable true
+            //signingConfig signingConfigs.debug
+        }
+
+        qa {
+            debuggable true
+            //signingConfig signingConfigs.qa
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -35,7 +51,7 @@ android {
 }
 
 dependencies {
-
+    // Remote dependencies
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -46,8 +62,29 @@ dependencies {
     implementation 'com.google.android.material:material:1.9.0'
     implementation "com.google.dagger:hilt-android:2.38.1"
     kapt "com.google.dagger:hilt-compiler:2.38.1"
+
+    //---->REST API
+    implementation "com.squareup.okhttp3:okhttp:4.10.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.10.0"
+
+    //------->  retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    //------->  moshi
+    implementation("com.squareup.moshi:moshi-kotlin:1.13.0")
+    implementation("com.squareup.moshi:moshi-adapters:1.13.0")
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.13.0")
+
+    //------->  retrofit with moshi
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+
+    //--->  LoggingInterceptor - Interceptor for OkHttp3
+    implementation('com.github.ihsanbal:LoggingInterceptor:3.1.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+
     //Local dependencies
-    //core module
+    //----> core module
     implementation project(':core')
 
 }
