@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Guidelines for fonts
+
+        h_<textSize>_<fontFamily>_<fontType>_<textStyle>_<gravity>_[<text_color>]
+            <textSize>    -> {23,16,14,12,}
+            <fontFamily>  -> {roboto,os,}            -> {roboto, open sans, default font if omitted}
+            <fontType>    -> {sb,m,r,}               -> {semibold, medium, regular}
+            <textStyle>   -> {n,i,b}                 -> {normal, italic, bold}
+            <gravity>     -> {c,l,r,}                -> {center,left,right}
+            [<text_color>] -> {g1,p,}                -> {color_1, particular color for that type of text}
+        -->
+
+    <!--Text styles-->
+
+    <style name="h_14_n_c_primary">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_text_primary</item>
+    </style>
+
+    <style name="h_14_n_c_secondary">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_text_secondary</item>
+    </style>
+
+    <style name="h_14_b_c_primary">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_text_primary</item>
+    </style>
+
+    <style name="h_14_b_c_secondary">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_text_secondary</item>
+    </style>
+
+    <style name="h_16_n_c_primary">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_text_primary</item>
+    </style>
+
+    <style name="h_16_n_c_secondary">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_text_secondary</item>
+    </style>
+
+    <style name="h_16_b_c_primary">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_text_primary</item>
+    </style>
+
+    <style name="h_16_b_c_secondary">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_text_secondary</item>
+    </style>
+
+    <style name="h_25_b_c_red_2">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_red_2</item>
+    </style>
+</resources>
