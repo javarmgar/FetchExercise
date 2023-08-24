@@ -33,15 +33,24 @@ Fetch Exercise App is composed by the following android components.
 #### Layers
 Fetch Exercise App Architecture components are composed themselves by the following layers.
 - **core component**:
-  - data: Data abstractions for: models, datasources, repositories, mappers (e.g. **_HiringRepository, HiringRemoteDataSource, HiringResponseModel_**)
-  - domain: Abstractions for Use Cases (also known as interactors):  (e.g. **GetHiringUseCase**)
+  - **data**: Data abstractions for: models, datasources, repositories, mappers <br>
+      - (e.g. **_HiringRepository, HiringRemoteDataSource, HiringResponseModel_**)
+  - **domain**: Abstractions for Use Cases (also known as interactors):<br>
+      - (e.g. **GetHiringUseCase**)
 - **app component**:
-  - framework
-  - presentation
-  - modules
+  - **framework**: It contains concrete implementations of the abstractions declared in core component. It comprises 3 packages:
+    - **dataimpl**: Concrete implementations for: models, datasources, repositories, mappers <br>
+      - (e.g. **_HiringRepositoryImpl, HiringRemoteDataSourceImpl, HiringResponseModelImpl_**)
+    - **domainimpl**: Concrete implementations for: Use cases <br>
+      - (e.g. **_GetHiringUseCaseImpl_**)
+    - **library**: It holds several classes: keys, managers, utils...
+  - **presentation**: This layers hold classes that are involved in the UI creation process: Activities, Views and ViewModels.
+    - (e.g. **_MainActivity, HiringViewHolder, MainViewModel_**)
+  - modules: This is not accurately a layer but a package. It is responsible for providing instances to the Dagger-Hilt application Graph via abstract definitions alongside Hilt and Dagger annotations.
+    - (e.g. **_NetworkModule, RemoteDataSourceModule, RepositoryModule..._**)
 
   
 ### Fetch Exercise App Architecture Description
-
+The previous layer description section enlisted and briefly details each layer purpose. However internally each layer at the same time compounds several packages (e.g **base** package which is used to holds base/parent classes). The complete directory structure of the project is being displayed here:
 
 ### Screenshots and videos 
