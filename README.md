@@ -51,6 +51,6 @@ Fetch Exercise App Architecture components are composed themselves by the follow
 
   
 ### Fetch Exercise App Architecture Description
-The previous layer description section enlisted and briefly details each layer purpose. However internally each layer at the same time compounds several packages (e.g **base** package which is used to holds base/parent classes). The complete directory structure of the project is being displayed here:
+The previous layer description section enlisted and briefly details each layer purpose. However internally each layer at the same time compounds several packages (e.g **base** package which is used to holds base/parent classes). The complete directory structure of the project is being displayed here [File Directory Structure](https://github.com/javarmgar/FetchExercise/blob/main/FileDirectoryStructure.md)
 
 ### Screenshots and videos 
