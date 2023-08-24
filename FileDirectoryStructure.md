@@ -1,17 +1,17 @@
 ### fetchexercise app
-- app component
-	- framework
-		- dataimpl
-			- local
+- ### **app component**
+	- #### **framework**
+		- **dataimpl**
+			- **local**
 				- conf
 				- dao
 				- datasource
 				- entitiy
 				- model
 				- relationship
-			- mapper
+			- **mapper**
 				- HiringMapperImpl
-			- remote
+			- **remote**
 				- api
 					- base
 						- service
@@ -27,57 +27,57 @@
 						- HiringResponse
 				- repository
 					- HiringRepositoryImpl
-		- domainimpl
-			- base
+		- **domainimpl**
+			- **base**
 				- Interactors
-			- fethusecase
+			- **fethusecase**
 				- GetHiringUseCaseImpl
-		- library
-			- key
+		- **library**
+			- **key**
 				- KeysRemote
-			- manager
+			- **manager**
 				- EnvironmentManager.kt
 				- WebServiceManager
-			- utils
+			- **utils**
 				- ExtensionFunctions.kt
 				- Resource
 				- Status
 		- App
-	- modules
-		- base
+	- #### **modules**
+		- **base**
 			- NetworkModule
-		- datasource
+		- **datasource**
 			- local
 			- remote
 				- RemoteDataSourceModule
-		- interactor
+		- **interactor**
 			- InteractorModule
-		- repository
+		- **repository**
 			- RepositoryModule
-	- presentation
-		- base
-		- view
-			- activity
+	- #### **presentation**
+		- **base**
+		- **view**
+			- **activity**
 				- MainActivity
-			- adapter
+			- **adapter**
 				- HiringAdapter
-			- viewholder
+			- **viewholder**
 				- HiringViewHolder
-		- viewmodel
+		- **viewmodel**
 			- MainViewModel
 
-- core component
-	- data
-		- base
+- ### **core component**
+	- #### **data**
+		- **base**
 			- DataSource
 			- Model
 			- Repository
-		- local
+		- **local**
 			- datasource
 			- model
-		- mapper
+		- **mapper**
 			- MapperIO
-		- remote
+		- **remote**
 			- base
 				- ApiModel
 				- ApiParamsModel
@@ -93,7 +93,7 @@
 					- HiringResponseModel
 				- repository
 					- HiringRepository
-	- domain
-		- base
-		- fetchusecase
+	- #### **domain**
+		- **base**
+		- **fetchusecase**
 			- GetHiringUseCase
