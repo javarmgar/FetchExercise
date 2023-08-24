@@ -73,3 +73,13 @@ The previous layer description section enlisted and briefly details each layer p
 #### Videos
 - Flow navigation video: It testes all the previous options
 [fetch_video_screen_1.webm](https://github.com/javarmgar/FetchExercise/assets/21993768/b151d984-25e5-4225-b0a8-aee41c200c45)
+
+### Pull Requests
+This section has been made to show incremental changes over the app.
+
+- https://github.com/javarmgar/FetchExercise/pull/1 :OkHttp Client and Retrofit Client related classes for networking communication using HTTP protocol
+- https://github.com/javarmgar/FetchExercise/pull/2 :Data Layer creation following clean architecture 
+- https://github.com/javarmgar/FetchExercise/pull/3 :Feature/domain layer clean architecture
+- https://github.com/javarmgar/FetchExercise/pull/4 :FrameWork Layer creation following Clean Architecture 
+- https://github.com/javarmgar/FetchExercise/pull/5 :Module package for Dependency Injection with Hitl
+- https://github.com/javarmgar/FetchExercise/pull/6 :Presentation Layer creation following clean architecture
