@@ -1,18 +1,47 @@
 # FetchExercise App 
 Fetch Exercise
 
-## Description 
+### Description 
 This is a native Android app in Kotlin or Java that retrieves the data from https://fetch-hiring.s3.amazonaws.com/hiring.json.<br>
 It uses key points that I have learn during my career as an Android Software Enginee: 
 - **Clean Architecture principles**
 - **best practices** 
 - **personal implementations**
 
-## Preliminaries
+### Preliminaries
 
 As stated in the description the application is based on Clean Architecture patern which implements SOLID principles. The following diagram is the typical one that was has been used as a general practice for building software projects.
 
   <img width="306" alt="image" src="https://github.com/javarmgar/FetchExercise/assets/21993768/b175bb3e-707b-4ed9-98ef-7e2ecbf5418f">
 
 
-## Fetch Exercise App Architecture
+### Fetch Exercise App Architecture
+
+As we are working in an Android project the Clean Architecture has been applied to the android App and some changes and adjusments were done.
+
+Here's a diagram of the Fetch Exercise App Architecture.<br>
+  <img width="306" alt="image" src="https://github.com/javarmgar/FetchExercise/assets/21993768/b175bb3e-707b-4ed9-98ef-7e2ecbf5418f">
+
+#### Android Components
+Fetch Exercise App is composed by the following android components.
+- **core component**:
+  - It holds only abstract entities i.e. interfaces and abstract classes, by decoupling abstract entities from concrete implementations we can make a reusable project. This component can be later reusable from other components namely Android TV apps, automobile apps and so on.
+  - Additionally this component DO NOT have access to Android SDK, forcing developers to correctly implement **SOLID** principles
+- **app component**: This is the actual app, it has access to android SDK and libraries. Core component is imported as a local dependency, then concrete classes implement core interfaces and abstract classes.
+
+
+#### Layers
+Fetch Exercise App Architecture components are composed themselves by the following layers.
+- **core component**:
+  - data: Data abstractions for: models, datasources, repositories, mappers (e.g. **_HiringRepository, HiringRemoteDataSource, HiringResponseModel_**)
+  - domain: Abstractions for Use Cases (also known as interactors):  (e.g. **GetHiringUseCase**)
+- **app component**:
+  - framework
+  - presentation
+  - modules
+
+  
+### Fetch Exercise App Architecture Description
+
+
+### Screenshots and videos 
