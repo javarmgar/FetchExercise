@@ -51,6 +51,25 @@ Fetch Exercise App Architecture components are composed themselves by the follow
 
   
 ### Fetch Exercise App Architecture Description
-The previous layer description section enlisted and briefly details each layer purpose. However internally each layer at the same time compounds several packages (e.g **base** package which is used to holds base/parent classes). The complete directory structure of the project is being displayed here [File Directory Structure](https://github.com/javarmgar/FetchExercise/blob/main/FileDirectoryStructure.md)
+The previous layer description section enlisted and briefly details each layer purpose. However internally each layer at the same time compounds several packages (e.g **base** package which is used to holds base/parent classes). The complete directory structure of the project is being displayed here [File Directory Structure](https://github.com/javarmgar/FetchExercise/blob/main/FileDirectoryStructure.md).
 
 ### Screenshots and videos 
+#### Screenshots
+- Loading Screen: retrieving data from webservice
+<img src="https://github.com/javarmgar/FetchExercise/assets/21993768/c0af07b7-14dc-4fef-94fd-8056361bdd78" width="30%" height="30%" />
+
+- Fetch Screen: Data successfully retrieved and displayed without sortings or filters
+<img src="https://github.com/javarmgar/FetchExercise/assets/21993768/1a669cbe-cfc7-41dd-b239-37792d3614d2" width="30%" height="30%" />
+
+- Sorted 1 Screen: User selects to sort list by listId field:
+<img src="https://github.com/javarmgar/FetchExercise/assets/21993768/4edd689c-24e3-4679-b6aa-e4dd9a13d1a7" width="30%" height="30%" />
+
+- Sorted 2 Screen: User selects to sort list 1st by listId field and then 2nd by name:
+<img src="https://github.com/javarmgar/FetchExercise/assets/21993768/9da310fb-f3a6-4022-9974-40bb74eeed4c" width="30%" height="30%" />
+
+- Filtered screen: User selects to filtered items that have field name null or in blank '':
+<img src="https://github.com/javarmgar/FetchExercise/assets/21993768/44859e4f-b90e-4050-b10f-c2aa71851213" width="30%" height="30%" />
+
+#### Videos
+- Flow navigation video: It testes all the previous options
+[fetch_video_screen_1.webm](https://github.com/javarmgar/FetchExercise/assets/21993768/b151d984-25e5-4225-b0a8-aee41c200c45)
