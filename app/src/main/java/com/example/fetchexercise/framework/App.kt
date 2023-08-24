@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import dagger.hilt.android.HiltAndroidApp
 
+@SuppressWarnings
 @HiltAndroidApp
 class App: Application() {
 
