@@ -10,8 +10,10 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.activity.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.ListAdapter
 import com.example.core.data.remote.model.HiringResponseModel
 import com.example.core.data.remote.model.params.HiringParamsModel
 import com.example.fetchexercise.R
@@ -24,10 +26,22 @@ import com.example.fetchexercise.presentation.view.adapter.HiringAdapter
 import com.example.fetchexercise.presentation.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import java.util.Comparator
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
+    val filterByName = { item: HiringResponseModel -> item.name != "null" && item.name != "" }
+    val filterNone = { _: HiringResponseModel -> true }
+
+    val comparatorByFirst = compareBy<HiringResponseModel> { it.listId }
+    val comparatorByFirstSecond = comparatorByFirst.thenBy { it.name }
+
+    private var filter: (HiringResponseModel) -> Boolean = filterNone
+    private lateinit var comparator: Comparator<HiringResponseModel>
+
+    private var isFilterByName = MutableLiveData(false)
+    private var sortingCriteria = MutableLiveData(0)
     private lateinit var adapter: HiringAdapter
     private lateinit var filterByNameSpinner: Spinner
     private lateinit var sortingFieldSpinner: Spinner
@@ -35,7 +49,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val LOG_TAG: String = "LT_MainActivity"
 
-    private val viewModel:MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,11 +63,10 @@ class MainActivity : AppCompatActivity() {
         setRecyclerView()
 
 
-
     }
 
     private fun setSortingFieldSpinner() {
-        sortingFieldSpinner =  binding.spnSortByField
+        sortingFieldSpinner = binding.spnSortByField
         val adapter = ArrayAdapter.createFromResource(
             this,
             R.array.hiring_fields,
@@ -67,8 +80,9 @@ class MainActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                val itemSelected:String? = parent?.getItemAtPosition(position) as String?
+                val itemSelected: String? = parent?.getItemAtPosition(position) as String?
                 Log.d(LOG_TAG, "setSortingFieldSpinner() itemSelected: $itemSelected")
+                sortingCriteria.value = position
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -92,8 +106,12 @@ class MainActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                val itemSelected:String? = parent?.getItemAtPosition(position) as String?
+                val itemSelected: String? = parent?.getItemAtPosition(position) as String?
                 Log.d(LOG_TAG, "setFilterByNameSpinner() itemSelected: $itemSelected")
+                isFilterByName.value = when (position) {
+                    0 -> false
+                    else -> true
+                }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -106,29 +124,32 @@ class MainActivity : AppCompatActivity() {
     private fun setRecyclerView() {
         adapter = HiringAdapter()
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED){
-                viewModel.hiringListState.collect{ resource ->
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.hiringListState.collect { resource ->
                     Log.d(LOG_TAG, "onCreate() viewModel.hiringListState.collect -> $resource")
                     updateRecyclerView(resource)
 
                 }
             }
         }
-        viewModel.fetchHiringList(object:HiringParamsModel{})
+        viewModel.fetchHiringList(object : HiringParamsModel {})
     }
 
     private fun updateRecyclerView(resource: Resource<List<HiringResponseModel>>) {
         Log.d(LOG_TAG, "updateRecyclerView() resource.status ${resource.status}")
-        when(resource.status){
+        when (resource.status) {
             Status.LOADING -> {
                 setLoadingState()
             }
+
             Status.ERROR -> {
                 setErrorState(resource.message)
             }
+
             Status.SUCCESS -> {
                 setSuccessState(resource.data)
             }
+
             else -> {}
         }
     }
@@ -156,6 +177,8 @@ class MainActivity : AppCompatActivity() {
         Log.d(LOG_TAG, "setSuccessState() hiringList $hiringList")
         hiringList?.run {
             binding.rvHirings.recyclerView.adapter = adapter
+            setSortingMethods(this)
+            setFilterMethods(this)
             adapter.submitList(this)
         }
         binding.apply {
@@ -164,5 +187,29 @@ class MainActivity : AppCompatActivity() {
             tvMsgError.setGone()
             rvHirings.root.setVisible()
         }
+    }
+
+    private fun setSortingMethods(hiringList: List<HiringResponseModel>) {
+        sortingCriteria.observe(this) {
+            comparator = when (it) {
+                1 -> comparatorByFirst
+                else -> comparatorByFirstSecond
+            }
+            setListAttributes(hiringList)
+            Log.d(LOG_TAG, "setSortingMethods() sortingCriteria: $it")
+        }
+    }
+
+    private fun setFilterMethods(hiringList: List<HiringResponseModel>) {
+        isFilterByName.observe(this) { it ->
+            filter = if (it) filterByName else filterNone
+            setListAttributes(hiringList)
+            Log.d(LOG_TAG, "setFilterMethods() isFilterByName: $it")
+        }
+    }
+
+    private fun setListAttributes(hiringList: List<HiringResponseModel>) {
+        val list = hiringList.filter(filter).sortedWith(comparator)
+        (binding.rvHirings.recyclerView.adapter as HiringAdapter).submitList(list)
     }
 }

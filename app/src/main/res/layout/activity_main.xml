@@ -11,12 +11,25 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintWidth="match_parent"
-        app:layout_constraintHeight="@dimen/_50dp"
+        app:layout_constraintHeight="wrap_content"
         android:text="@string/text_activity_title"
         android:layout_margin="@dimen/_16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth="match_parent"
+        app:layout_constraintHeight="wrap_content"
+        android:text="@string/text_activity_subtitle"
+        android:layout_margin="@dimen/_16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
         />
 
     <TextView
@@ -27,9 +40,10 @@
         app:layout_constraintHeight="wrap_content"
         android:text="@string/text_sort_by_field"
         android:layout_marginHorizontal="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_subtitle"
         />
 
     <Spinner
