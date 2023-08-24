@@ -3,7 +3,7 @@ Fetch Exercise
 
 ### Description 
 This is a native Android app in Kotlin or Java that retrieves the data from https://fetch-hiring.s3.amazonaws.com/hiring.json.<br>
-It uses key points that I have learn during my career as an Android Software Enginee: 
+It uses key points that I have learned during my career as an Android Software Engineer: 
 - **Clean Architecture principles**
 - **best practices** 
 - **personal implementations**
