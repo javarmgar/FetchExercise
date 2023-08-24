@@ -1,3 +1,27 @@
 <resources>
+
     <string name="app_name">FetchExercise</string>
+    <string name="text_activity_title">Fetch Exercise</string>
+    <string name="text_sort_by_field">Sorting criteria: 1st by listId, 2nd by name</string>
+    <string name="text_filter_by_name">Filter by:</string>
+    <string name="text_list_id">listId:</string>
+    <string name="place_holder_text_list_id">20</string>
+    <string name="text_id">id:</string>
+    <string name="place_holder_text_id">1</string>
+    <string name="text_name">name:</string>
+    <string name="place_holder_text_name">Item 808</string>
+    <string name="text_title_error">Error. Try again Later</string>
+    <string name="text_activity_subtitle">All items are grouped by listId</string>
+
+    <string-array name="hiring_fields">
+        <item>No sorting</item>
+        <item>by listId</item>
+        <item>by listId, then by name</item>
+    </string-array>
+
+    <string-array name="filter_name_options">
+        <item>No filter</item>
+        <item>Omit when name is null or blank</item>
+    </string-array>
+
 </resources>

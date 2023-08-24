@@ -4,15 +4,141 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".presentation.view.activity.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth="match_parent"
+        app:layout_constraintHeight="wrap_content"
+        android:text="@string/text_activity_title"
+        android:layout_margin="@dimen/_16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth="match_parent"
+        app:layout_constraintHeight="wrap_content"
+        android:text="@string/text_activity_subtitle"
+        android:layout_margin="@dimen/_16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        />
+
+    <TextView
+        android:id="@+id/tv_sort_by_field"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth="match_parent"
+        app:layout_constraintHeight="wrap_content"
+        android:text="@string/text_sort_by_field"
+        android:layout_marginHorizontal="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_subtitle"
+        />
+
+    <Spinner
+        android:id="@+id/spn_sort_by_field"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth="match_parent"
+        app:layout_constraintHeight="@dimen/_50dp"
+        android:layout_marginHorizontal="@dimen/_16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_sort_by_field"
+        />
+
+    <TextView
+        android:id="@+id/tv_filter_by_name"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth="match_parent"
+        app:layout_constraintHeight="wrap_content"
+        android:text="@string/text_filter_by_name"
+        android:layout_marginHorizontal="@dimen/_16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spn_sort_by_field"
+        />
+
+    <Spinner
+        android:id="@+id/spn_filter_by_name"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth="match_parent"
+        app:layout_constraintHeight="@dimen/_50dp"
+        android:layout_marginHorizontal="@dimen/_16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_filter_by_name"
+        />
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.3"
+        app:layout_constraintDimensionRatio="1:1"
+        android:background="@color/transparent"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/spn_filter_by_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:indeterminateTint="@color/purple_200"
+        />
+
+    <ImageView
+        android:id="@+id/iv_msg_error"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_msg_error"
+        android:visibility="gone"
+        app:layout_constraintWidth_percent="0.29"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/spn_filter_by_name"
+        />
+
+    <TextView
+        android:id="@+id/tv_msg_error"
+        style="@style/h_25_b_c_red_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/text_title_error"
+        android:visibility="gone"
+        app:layout_constraintVertical_bias="0.10"
+        app:layout_constraintHeight="wrap_content"
+        app:layout_constraintWidth="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/iv_msg_error"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <include
+        android:id="@+id/rv_hirings"
+        layout="@layout/rv_hirings"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spn_filter_by_name"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
