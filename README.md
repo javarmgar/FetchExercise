@@ -10,14 +10,14 @@ It uses key points that I have learned during my career as an Android Software E
 
 ### Preliminaries
 
-As stated in the description the application is based on Clean Architecture patern which implements SOLID principles. The following diagram is the typical one that was has been used as a general practice for building software projects.
+As stated in the description the application is based on Clean Architecture pattern which implements SOLID principles. The following diagram is the typical one that  has been used as a general practice for building software projects.
 
   <img width="306" alt="image" src="https://github.com/javarmgar/FetchExercise/assets/21993768/b175bb3e-707b-4ed9-98ef-7e2ecbf5418f">
 
 
 ### Fetch Exercise App Architecture
 
-As we are working in an Android project the Clean Architecture has been applied to the android App and some changes and adjusments were done.
+As we are working in an Android project the Clean Architecture has been applied to the android App and some changes and adjustments were done.
 
 Here's a diagram of the Fetch Exercise App Architecture.<br>
   <img width="800" alt="image" src="https://github.com/javarmgar/FetchExercise/assets/21993768/0b4979b6-959d-4930-a842-cf8da93c594d">
