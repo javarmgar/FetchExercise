@@ -8,7 +8,6 @@ import com.example.core.data.remote.model.params.HiringParamsModel
 import com.example.fetchexercise.framework.domainimpl.base.Interactors
 import com.example.fetchexercise.framework.library.utils.Resource
 import com.example.fetchexercise.framework.library.utils.Status
-import com.example.fetchexercise.presentation.viewmodel.Interface.InterfaceGetHiringUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,8 +20,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val interactors: Interactors,
-):  ViewModel(),
-    InterfaceGetHiringUseCase {
+):  ViewModel(){
 
     private val LOG_TAG:String = "LT_HomeMenuViewModel"
 
